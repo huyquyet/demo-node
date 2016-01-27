@@ -3,19 +3,23 @@ angular.module('appRouter', []).config([
     '$urlRouterProvider',
     '$locationProvider',
     function ($stateProvider, $urlRouterProvider, $locationProvider) {
+        /*Điều hướng 404*/
+        $urlRouterProvider.otherwise("/404.html");
+
         /*Thiết lập các state*/
-        $stateProvider.state('home', {
-            url: "/",
-            templateUrl: "view/home.html",
-            controller: 'baseController'
-        })
+        $stateProvider
+            .state('home', {
+                url: "/",
+                templateUrl: "views/home.html",
+                controller: 'baseController'
+            })
             .state('list', {
-                url: "list",
+                url: "/list",
                 templateUrl: "views/list.html",
                 controller: 'ListPostController'
             })
             .state('create', {
-                url: "create",
+                url: "/create",
                 templateUrl: "views/create.html",
                 controller: 'CreatePostController'
             })
